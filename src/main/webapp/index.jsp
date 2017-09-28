@@ -24,8 +24,9 @@
 		<div id='cssmenu' class="align-center">
 			<ul>
 			   <li class="active"><a href='index.jsp'><span>首页</span></a></li>
-			   <li class="active"><a href='index.jsp'><span>tab页1</span></a></li>
-			   <li class="active"><a href='index.jsp'><span>tab页2</span></a></li>
+			   <li><a href='index.jsp'><span>tab页1</span></a></li>
+			   <li class="last"><a href='index.jsp'><span>tab页2</span></a></li>
+			   <li class="last"><a href='index.jsp'><span>tab页3</span></a></li>
 			</ul>
 		</div>
 		<header class="">

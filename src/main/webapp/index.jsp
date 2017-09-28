@@ -25,6 +25,12 @@
 			<ul>
 			   <li class="active"><a href='index.jsp'><span>首页</span></a></li>
 			</ul>
+			<ul>
+			   <li class="active"><a href='index.jsp'><span>tab页1</span></a></li>
+			</ul>
+			<ul>
+			   <li class="active"><a href='index.jsp'><span>tab页2</span></a></li>
+			</ul>
 		</div>
 		<header class="">
 			<div class="logo">

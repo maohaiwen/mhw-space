@@ -24,12 +24,13 @@
 		<div id='cssmenu' class="align-center">
 			<ul>
 			   <li class="active"><a href='index.jsp'><span>首页</span></a></li>
-			   <li><a href='index.jsp'><span>tab页1</span></a></li>
+			   <li><a href='index.jsp'><span>随便记记</span></a></li>
 			   <li class="last"><a href='index.jsp'><span>tab页2</span></a></li>
 			   <li class="last"><a href='index.jsp'><span>tab页3</span></a></li>
 			</ul>
 		</div>
 		<header class="">
+			<div style="margin-left:90%;"><a href="#">登录</a></div>
 			<div class="logo">
 				<hr class="line-1">
 				<span>欢迎来到我的个人网站</span>

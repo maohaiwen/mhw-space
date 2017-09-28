@@ -33,8 +33,8 @@
 			<div style="margin-left:90%;"><a href="#">登录</a></div>
 			<div class="logo">
 				<hr class="line-1">
-				<span>欢迎来到我的个人网站</span>
-				<a href="#">maohaiwen</a>
+				<!-- <span>欢迎来到我的个人网站</span> -->
+				<a href="#">杨永瑞大傻逼</a>
 				<hr class="line-1">
 			</div>
 			<div id="owl-slide" class="owl-carousel">

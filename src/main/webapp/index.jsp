@@ -15,6 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta name="author" content="#">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">  
 <jsp:include page="/view/common/importCommon.jsp"></jsp:include>
 <script type="text/javascript" language="javascript">   
 		function iFrameHeight() {   

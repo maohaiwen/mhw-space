@@ -8,6 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Access-Control-Allow-Origin" content="*">  
 <title>Insert title here</title>
 <link rel="stylesheet" href="<%=basePath %>css/zerogrid.css">
 <link rel="stylesheet" href="<%=basePath %>css/style.css">

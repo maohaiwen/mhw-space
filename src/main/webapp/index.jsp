@@ -25,7 +25,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			   ifm.height = subWeb.body.scrollHeight;
 			   //ifm.width = subWeb.body.scrollWidth;
 			}   
-		}   
+		}  
+		
+		function directTo(){
+			
+		}
 </script>
 </head>
 
@@ -33,10 +37,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="wrap-body">
 		<div id='cssmenu' class="align-center">
 			<ul>
-				<li class="active"><a href='index.jsp'><span>首页</span></a></li>
-				<li><a href='index.jsp'><span>随便记记</span></a></li>
-				<li class="last"><a href='index.jsp'><span>tab页2</span></a></li>
-				<li class="last"><a href='index.jsp'><span>tab页3</span></a></li>
+				<li class="active"><a href='javascrpit:void(0)' onclick="directTo('1')"><span>首页</span></a></li>
+				<li><a href='index.jsp'><span>学术</span></a></li>
+				<li class="last"><a href='index.jsp'><span>随便记记</span></a></li>
+				<li class="last"><a href='index.jsp'><span>about me</span></a></li>
 			</ul>
 		</div>
 		<iframe src="<%=basePath %>dispatcher/homePage.action" id="iframepage" frameborder="0"

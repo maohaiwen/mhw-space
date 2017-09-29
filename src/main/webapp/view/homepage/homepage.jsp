@@ -19,7 +19,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 
 <body>
-<input type="text" value="${basePath}">
 	<div class="wrap-body">
 		<header class="">
 			<div style="margin-left:88%;"><a href="#">登录</a></div>

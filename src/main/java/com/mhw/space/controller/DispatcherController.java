@@ -8,7 +8,7 @@ import com.mhw.space.util.common.DispatcherConstants;
 @Controller
 @RequestMapping(value="dispatcher")
 public class DispatcherController {
-
+	
 	@RequestMapping(value="homePage")
 	public String homePage() {
 		return DispatcherConstants.HOME_PAGE;

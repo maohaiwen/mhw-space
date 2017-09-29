@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%  
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+%> 
+<jsp:include page="/view/common/importCommon.jsp"></jsp:include>
 <!DOCTYPE html>
 <head>
 
@@ -10,16 +15,10 @@
 	<meta name="description" content="Free Responsive Html5 Css3 Templates ">
 	<meta name="author" content="#">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  	<link rel="stylesheet" href="css/zerogrid.css">
-	<link rel="stylesheet" href="css/style.css">
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" href="css/menu.css">
-	<script src="js/jquery1111.min.js" type="text/javascript"></script>
-	<script src="js/script.js"></script>
-    <link href="owl-carousel/owl.carousel.css" rel="stylesheet">
 </head>
 
 <body>
+<input type="text" value="${basePath}">
 	<div class="wrap-body">
 		<header class="">
 			<div style="margin-left:88%;"><a href="#">登录</a></div>
@@ -31,14 +30,13 @@
 			</div>
 			<div id="owl-slide" class="owl-carousel">
 				<div class="item">
-					<img src="images/slider1.jpg" />
+					<img src="<%=basePath %>images/slider1.jpg" />
 				</div>
 				<div class="item">
-					<img src="images/slider2.jpg" />
+					<img src="<%=basePath %>images/slider2.jpg" />
 				</div>
 				<div class="item">
-					<img src="images/slider3.jpg" />
-					
+					<img src="<%=basePath %>images/slider3.jpg" />
 				</div>
 			</div>
 		</header>
@@ -92,8 +90,6 @@
 				</div>
 			</div>
 		</footer>
-		<!-- carousel -->
-		<script src="owl-carousel/owl.carousel.js"></script>
 		<script>
 		$(document).ready(function() {
 		  $("#owl-slide").owlCarousel({

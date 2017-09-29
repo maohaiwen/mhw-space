@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%  
+String path = request.getContextPath();  
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+%> 
 <!DOCTYPE html>
 <head>
 
@@ -11,15 +15,7 @@
 <meta name="author" content="#">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
-<link rel="stylesheet" href="css/zerogrid.css">
-<link rel="stylesheet" href="css/style.css">
-<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
-	type="text/css">
-<link rel="stylesheet" href="css/menu.css">
-<script src="js/jquery1111.min.js" type="text/javascript"></script>
-<script src="js/script.js"></script>
-<link href="owl-carousel/owl.carousel.css" rel="stylesheet">
-
+<jsp:include page="/view/common/importCommon.jsp"></jsp:include>
 <script type="text/javascript" language="javascript">   
 		function iFrameHeight() {   
 			var ifm= document.getElementById("iframepage");   
@@ -42,7 +38,7 @@
 				<li class="last"><a href='index.jsp'><span>tab页3</span></a></li>
 			</ul>
 		</div>
-		<iframe src="welcome.jsp" id="iframepage" frameborder="0"
+		<iframe src="<%=basePath %>dispatcher/homePage.action" id="iframepage" frameborder="0"
 			scrolling="no" marginheight="0" marginwidth="0" style="width:100%;"
 			onLoad="iFrameHeight()"></iframe>
 	</div>

@@ -1,4 +1,4 @@
-package com.mhw.space.model;
+package com.mhw.space.model.resource;
 
 public class ResourceEntity {
 

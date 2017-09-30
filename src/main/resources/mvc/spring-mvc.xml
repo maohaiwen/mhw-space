@@ -51,5 +51,12 @@
         <property name="staticField"
                   value="com.alibaba.fastjson.serializer.SerializerFeature.DisableCircularReferenceDetect"></property>
     </bean>
+    
+    <mvc:interceptors>
+            <mvc:interceptor>
+            <mvc:mapping path="/**/*.action"  />
+            <bean class="com.mhw.space.util.system.validate.ValidateInteceptor"/>        
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

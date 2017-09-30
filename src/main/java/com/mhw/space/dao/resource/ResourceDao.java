@@ -2,7 +2,7 @@ package com.mhw.space.dao.resource;
 
 import java.util.List;
 
-import com.mhw.space.model.ResourceEntity;
+import com.mhw.space.model.resource.ResourceEntity;
 
 public interface ResourceDao {
 

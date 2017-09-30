@@ -8,8 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mhw.space.model.ResourceEntity;
-import com.mhw.space.service.IResourceService;
+import com.mhw.space.model.resource.ResourceEntity;
+import com.mhw.space.service.resource.IResourceService;
+import com.mhw.space.util.common.CommonResp;
 
 @Controller
 @RequestMapping(value="resource")
@@ -20,7 +21,9 @@ public class ResourceController {
 
 	@RequestMapping(value="selectResourceList")
 	@ResponseBody
-	public List<ResourceEntity> selectResourceList(ResourceEntity resourceEntity){
-		return resourceService.selectResourceList(resourceEntity);
+	public CommonResp selectResourceList(ResourceEntity resourceEntity){
+		List<ResourceEntity> list = resourceService.selectResourceList(resourceEntity);
+		return new CommonResp(list);
 	}
+	
 }

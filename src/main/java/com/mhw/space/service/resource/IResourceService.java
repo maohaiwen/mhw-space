@@ -1,8 +1,8 @@
-package com.mhw.space.service;
+package com.mhw.space.service.resource;
 
 import java.util.List;
 
-import com.mhw.space.model.ResourceEntity;
+import com.mhw.space.model.resource.ResourceEntity;
 
 public interface IResourceService {
 

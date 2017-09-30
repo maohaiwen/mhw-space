@@ -31,8 +31,12 @@
 			alert("咱填完了再提交。");
 			return;
 		}
-		
-		
+		var json = {"name": name, "content": message};
+		$.post(basePath + "leaveMessage/addLeaveMessage.action", json, function(data){
+			if(data.code == 200){
+				alert("留言成功！");
+			}
+		})
 	}
 </script>
 </head>

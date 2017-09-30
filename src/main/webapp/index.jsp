@@ -40,13 +40,16 @@
 
 	function loadAllResources() {
 		$.get(basePath + "resource/selectResourceList.action", function(data){
-			if(data != null && data.length > 0){
-				var domStr = "";
-				for(var i = 0 ; i < data.length ; i++){
-					domStr += "<li><a href='javascrpit:void(0)' onclick=directTo('" + data[i].resourceUrl + "','" + i + "') ><span>" + data[i].resourceName + "</span></a></li>";
+			if(data.code == 200){
+				data = data.data;
+				if(data != null && data.length > 0){
+					var domStr = "";
+					for(var i = 0 ; i < data.length ; i++){
+						domStr += "<li><a href='javascrpit:void(0)' onclick=directTo('" + data[i].resourceUrl + "','" + i + "') ><span>" + data[i].resourceName + "</span></a></li>";
+					}
+					$("#ul_menus").html(domStr);
+					$("#ul_menus li:eq(0)").attr("class", "active");
 				}
-				$("#ul_menus").html(domStr);
-				$("#ul_menus li:eq(0)").attr("class", "active");
 			}
 		});
 	}

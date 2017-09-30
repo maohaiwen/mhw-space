@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhw.space.dao.resource.ResourceDao">
+
+	<resultMap type="com.mhw.space.model.resource.ResourceEntity" id="resourceMap">
+		<result column="id" property="id" />
+		<result column="resource_name" property="resourceName" />
+		<result column="resource_url" property="resourceUrl" />
+		<result column="resource_type" property="resourceType" />
+	</resultMap>
+
+    <select id="selectResourceList" parameterType="Object" resultMap="resourceMap">
+        select * from mhw_resource
+        <where>
+        	<if test="id != null">and id=#{id}</if>
+        	<if test="resourceName != null">and resource_name=#{resourceName}</if>
+        	<if test="resourceUrl != null">and resource_url=#{resourceUrl}</if>
+        	<if test="resourceType != null">and resource_type=#{resourceType}</if>
+        </where>
+    </select>
+   
+</mapper>

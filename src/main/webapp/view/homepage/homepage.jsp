@@ -151,7 +151,7 @@
 	</div>
 
 	<div id="login_modal" class="div_modal"
-		style="width: 30%;min-width:768px; height: 16%; background: white; padding-top: 3%;">
+		style="width: 30%;min-width:300px; height: 16%; background: white; padding-top: 3%;">
 		<label class="row">
 			<div class="col-1-3">
 				<div class="wrap-col">

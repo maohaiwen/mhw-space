@@ -97,7 +97,7 @@
 									</div>
 								</label>
 								<center>
-									<input class="sendButton" style="width: 20%;" type="button"
+									<input class="sendButton" style="width: 20%;min-width:100px;" type="button"
 										onclick="submitMessage()" name="Submit" value="提交">
 								</center>
 							</form>

@@ -19,7 +19,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver{
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 			Exception ex) {
-		
+		ex.printStackTrace();
 		// 校验失败
 		if(ex instanceof ValidateException) {
 			return resolveValidateException(response ,(ValidateException)ex);

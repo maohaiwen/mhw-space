@@ -4,6 +4,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mhw.space.model.leavemessage.LeaveMessageEntity;
 import com.mhw.space.service.leavemessage.ILeaveMessageService;
@@ -18,9 +19,10 @@ public class LeaveMessageController {
 	private ILeaveMessageService leaveMessageService;
 
 	@RequestMapping(value="addLeaveMessage")
+	@ResponseBody
 	@Validate(columns= {"name, notnull, 姓名不能为空！", "content, notnull, 内容不能为空！"})
 	public CommonResp addLeaveMessage(LeaveMessageEntity leaveMessageEntity) {
-		boolean success = leaveMessageService.addLeaveMessage(leaveMessageEntity);
-		return success ? new CommonResp(200) : new CommonResp(500);
+		leaveMessageService.addLeaveMessage(leaveMessageEntity);
+		return new CommonResp();
 	}
 }

@@ -4,5 +4,5 @@ import com.mhw.space.model.leavemessage.LeaveMessageEntity;
 
 public interface LeaveMessageDao {
 
-	int addLeaveMessage(LeaveMessageEntity leaveMessage);
+	void addLeaveMessage(LeaveMessageEntity leaveMessage);
 }

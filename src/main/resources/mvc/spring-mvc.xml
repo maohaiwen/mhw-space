@@ -59,4 +59,6 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
+	<!-- 全局异常处理 -->
+    <bean id="exceptionHandler" class="com.mhw.space.util.system.exception.CustomExceptionResolver" />
 </beans>

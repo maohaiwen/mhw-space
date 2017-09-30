@@ -35,7 +35,10 @@
 		$.post(basePath + "leaveMessage/addLeaveMessage.action", json, function(data){
 			if(data.code == 200){
 				alert("留言成功！");
+			}else{
+				alert(data.message);
 			}
+			$("#name,#message").val("");
 		})
 	}
 </script>

@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mhw.space.dao.leavemessage.LeaveMessageDao">
 
-    <select id="addLeaveMessage" parameterType="Object" resultType="int">
+    <insert id="addLeaveMessage" parameterType="Object" >
         insert into mhw_leave_message (name, content) values (#{name}, #{content})
-    </select>
+    </insert>
    
 </mapper>

@@ -12,7 +12,7 @@
 <!-- Basic Page Needs
   ================================================== -->
 <meta charset="utf-8">
-<title>maohaiwen</title>
+<title>首页</title>
 <meta name="description" content="Free Responsive Html5 Css3 Templates ">
 <meta name="author" content="#">
 <meta name="viewport"

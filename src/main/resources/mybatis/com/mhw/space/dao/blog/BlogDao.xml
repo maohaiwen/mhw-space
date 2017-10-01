@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mhw.space.dao.blog.BlogDao">
+
+	<resultMap type="com.mhw.space.model.resource.ResourceEntity" id="blogMap">
+		<result column="id" property="id" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="seeAble" property="seeAble" />
+		<result column="praiseCount" property="praiseCount" />
+		<result column="commentCount" property="commentCount" />
+		<result column="isStick" property="isStick" />
+		<result column="add_time" property="addTime" />
+		<result column="update_time" property="updateTime" />
+	</resultMap>
+
+    <insert id="insertBlog" parameterType="Object" >
+        insert into mhw_blog
+        <trim prefix="(" suffix=")" suffixOverrides="," >
+        		<if test="title != null">title,</if>
+        		<if test="content != null">content,</if>
+        		<if test="seeAble != null">see_able,</if>
+        		<if test="praiseCount != null">praise_count,</if>
+        		<if test="commentCount != null">comment_count,</if>
+        		<if test="isStick != null">is_stick,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides="," >
+        		<if test="title != null">#{title},</if>
+        		<if test="content != null">#{content},</if>
+        		<if test="seeAble != null">#{seeAble},</if>
+        		<if test="praiseCount != null">#{praiseCount},</if>
+        		<if test="commentCount != null">#{commentCount},</if>
+        		<if test="isStick != null">#{isStick},</if>
+        </trim>
+    </insert>
+    
+    <select id="selectBlogPage" parameterType="Object" resultMap="blogMap">
+    		select id, title, see_able, praise_count, comment_count, is_stick, add_time, update_time
+    		from mhw_blog
+    		order by is_stick desc
+    		limit #{pageBegin}, #{pageSize}
+    </select>
+    
+    <select id="selectEntity" parameterType="Object" resultMap="blogMap">
+    		select * from mhw_blog
+    		where id=#{id}
+    	</select>
+   
+</mapper>

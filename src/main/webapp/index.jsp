@@ -112,7 +112,7 @@
 		<div id="loginArea" style="position:absolute;margin-left: 85%;">
 			<a href="javascript:void(0)" onclick="openLogin()">登录</a>
 		</div>
-		<iframe src="<%=basePath%>dispatcher/homePage.action" id="iframepage"
+		<iframe src="<%=basePath%>dispatcher/toHomePage.action" id="iframepage"
 			frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
 			style="width: 100%;z-index:-1;" onLoad="iFrameHeight()"></iframe>
 	</div>

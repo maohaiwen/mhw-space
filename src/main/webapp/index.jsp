@@ -34,6 +34,7 @@
 	}
 
 	function directTo(url, num) {
+		alert(num);
 		$("#ul_menus li").attr("class", "");
 		$("#ul_menus li:eq(" + num + ")").attr("class", "active");
 		$("#iframepage").attr("src", url);

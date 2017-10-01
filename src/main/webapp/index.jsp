@@ -85,7 +85,7 @@
 	function loadUserMsg(){
 		$.get(basePath + "user/getUserFromSession.action", function(data){
 			if(data.code = 200){
-				$("#loginArea").html("欢迎," + data.data.realName);
+				$("#loginArea").html(data.data.realName);
 			}else{
 				$("#loginArea").html("<a href=\"javascript:void(0)\" onclick=\"openLogin()\">登录</a>");
 			}
@@ -107,7 +107,7 @@
 				
 			</ul>
 		</div>
-		<div id="loginArea" style="position:absolute;margin-left: 90%;">
+		<div id="loginArea" style="position:absolute;margin-left: 85%;">
 			<a href="javascript:void(0)" onclick="openLogin()">登录</a>
 		</div>
 		<iframe src="<%=basePath%>dispatcher/homePage.action" id="iframepage"

@@ -55,7 +55,7 @@ public class ValidateInteceptor extends HandlerInterceptorAdapter{
 			String requestParam = request.getParameter(columnName);
 			if(validateType.trim().equals("notnull")) {
 				if(StringUtils.isEmpty(requestParam)) {
-					throw new ValidateException(ExceptionConstants.ValidateException.NOT_NULL, validateMessage);
+					throw new ValidateException(ExceptionConstants.Validate.NOT_NULL, validateMessage);
 				}
 			}else {
 				// TODO 
@@ -77,7 +77,7 @@ public class ValidateInteceptor extends HandlerInterceptorAdapter{
 		}catch (ValidateException e) {
 			throw e;
 		} catch (Exception e) {
-			throw new ValidateException(ExceptionConstants.ValidateException.VALIDATOR_INIT, "can not execute doValidate in class [" + clazzPath + "]");
+			throw new ValidateException(ExceptionConstants.Validate.VALIDATOR_INIT, "can not execute doValidate in class [" + clazzPath + "]");
 		} 
 		
 	}

@@ -2,7 +2,7 @@ package com.mhw.space.util.common;
 
 public class ExceptionConstants {
 
-	public static class ValidateException{
+	public static class Validate{
 		
 		public static final int NO_PARAMS = 510;
 		
@@ -12,4 +12,11 @@ public class ExceptionConstants {
 		
 	}
 	
+	public static class User{
+		
+		public static final int LOGIN_FAIL = 520;
+		
+		public static final int UN_LOGIN = 521;
+		
+	}
 }

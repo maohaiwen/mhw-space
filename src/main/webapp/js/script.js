@@ -39,7 +39,7 @@ function openModalWithParams(divId, windowWidth, windowHeight){
 	// 取得传入DIV的长度      
 	var popupWidth = $div_obj.width();            
 	// // 添加并显示遮罩层      
-	$("<div id='bg_zhezhao'></div>").width(windowWidth * 0.99).height(windowHeight * 0.99).click(function() {
+	$("<div id='bg_zhezhao'></div>").width(windowWidth * 0.99).height(1200).click(function() {
 		closeModal(divId);          
 	}).appendTo("body").fadeIn(200);            
 	// 显示弹出的DIV      

@@ -42,19 +42,12 @@
 		})
 	}
 	
-	function openLogin(){
-		openModalWithHeight("login_modal", 400);
-	}
-	
 </script>
 </head>
 
 <body>
 	<div class="wrap-body">
 		<header class="">
-			<div style="margin-left: 88%;">
-				<a href="javascript:void(0)" onclick="openLogin()">登录</a>
-			</div>
 			<div class="logo">
 				<hr class="line-1">
 				<span>欢迎来到我的个人网站</span> <a href="#">maohaiwen</a>
@@ -150,25 +143,5 @@
 		</script>
 	</div>
 
-	<div id="login_modal" class="div_modal"
-		style="width: 30%;min-width:300px; height: 16%; background: white; padding-top: 3%;">
-		<label class="row">
-			<div class="col-1-3">
-				<div class="wrap-col">
-					<input type="text" placeholder="用户名"
-						style="width: 90%; height: 20px; margin-left: 5%;">
-				</div>
-			</div>
-		</label> <label class="row">
-			<div class="wrap-col">
-				<input type="password" placeholder="密码"
-					style="width: 90%; height: 20px; margin-left: 5%;">
-			</div>
-		</label>
-		<center>
-			<input class="sendButton" style="cursor:pointer;background:#575756;color:white;" type="button"
-				onclick="submitMessage()" name="login" value="登录">
-		</center>
-	</div>
 </body>
 </html>

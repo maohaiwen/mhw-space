@@ -1,3 +1,4 @@
+<%@page import="com.mhw.space.model.user.UserEntity"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -54,8 +55,46 @@
 		});
 	}
 	
+	function openLogin(){
+		openModalWithHeight("login_modal", 400);
+	}
+	
+	function doLogin(){
+		var userName = $("#userName").val();
+		if($.trim(userName) == ""){
+			alert("请填写用户名");
+			return;
+		}
+		var passWord = $("#passWord").val();
+		if($.trim(passWord) == ""){
+			alert("请填写密码");
+			return;
+		}
+		
+		var json = {"userName": userName, "passWord": passWord};
+		$.post(basePath + "user/doLogin.action", json, function(data){
+			alert(data.message);
+			if(data.code == 200){
+				loadUserMsg();
+				closeModal("login_modal");
+			}
+			$("#userName,#passWord").val("");
+		})
+	}
+	
+	function loadUserMsg(){
+		$.get(basePath + "user/getUserFromSession.action", function(data){
+			if(data.code = 200){
+				$("#loginArea").html("欢迎," + data.data.realName);
+			}else{
+				$("#loginArea").html("<a href=\"javascript:void(0)\" onclick=\"openLogin()\">登录</a>");
+			}
+		})
+	}
+	
 	$(function(){
 		loadAllResources();
+		loadUserMsg();
 	})
 	
 </script>
@@ -68,9 +107,34 @@
 				
 			</ul>
 		</div>
+		<div id="loginArea" style="position:absolute;margin-left: 90%;">
+			<a href="javascript:void(0)" onclick="openLogin()">登录</a>
+		</div>
 		<iframe src="<%=basePath%>dispatcher/homePage.action" id="iframepage"
 			frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
-			style="width: 100%;" onLoad="iFrameHeight()"></iframe>
+			style="width: 100%;z-index:-1;" onLoad="iFrameHeight()"></iframe>
+	</div>
+	
+	<div id="login_modal" class="div_modal"
+		style="width: 30%;min-width:300px; height: 16%; background: white; padding-top: 3%;z-index: 9999;">
+		<label class="row" style="background: white;">
+			<div class="col-1-3" style="background: white;">
+				<div class="wrap-col" style="background: white;">
+					<input id="userName" type="text" placeholder="用户名"
+						style="width: 90%; height: 20px; margin-left: 5%;margin-top:0px;margin-bottom:0px;">
+				</div>
+			</div>
+		</label> 
+		<label class="row" style="background: white;margin-top:0px;margin-bottom:0px;padding-top:20px;padding-bottom:20px;">
+			<div class="col-1-3">
+				<input id="passWord" type="password" placeholder="密码"
+					style="width: 90%; height: 20px; margin-left: 5%;margin-top:0px;margin-bottom:0px;">
+			</div>
+		</label>
+		<center>
+			<input class="sendButton" style="cursor:pointer;background:#575756;color:white;margin-top:0px;margin-bottom:0px;" type="button"
+				onclick="doLogin()" name="login" value="登录">
+		</center>
 	</div>
 </body>
 </html>

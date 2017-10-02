@@ -14,6 +14,11 @@ public class DispatcherController {
 		return DispatcherConstants.HOME_PAGE;
 	}
 	
+	@RequestMapping(value="toWriteBlog")
+	public String toWriteBlog() {
+		return DispatcherConstants.WRITE_BLOG;
+	}
+	
 	@RequestMapping("toStudy")
 	public String toStudy() {
 		return DispatcherConstants.STUDY;

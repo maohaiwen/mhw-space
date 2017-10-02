@@ -5,5 +5,6 @@ public class DispatcherConstants {
 	public static final String HOME_PAGE = "homepage/homepage";
 	// 学术
 	public static final String STUDY = "study/study";
-
+	// 写博客
+	public static final String WRITE_BLOG = "study/writeblog";
 }

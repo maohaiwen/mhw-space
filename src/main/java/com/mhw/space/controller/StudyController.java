@@ -1,6 +1,10 @@
 package com.mhw.space.controller;
 
+import java.io.IOException;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,8 +24,11 @@ public class StudyController {
 	
 	@RequestMapping("insertBlog")
 	@ResponseBody
-	public CommonResp insertBlog(BlogEntity blogEntity) {
-		studyService.insertBlog(blogEntity);
+	public CommonResp insertBlog(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		String title = request.getParameter("title");
+		String myContent = request.getParameter("myContent");
+		System.out.println(title);
+		System.out.println(myContent);
 		return new CommonResp();
 	}
 

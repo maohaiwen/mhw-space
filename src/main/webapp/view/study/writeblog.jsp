@@ -18,9 +18,6 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Access-Control-Allow-Origin" content="*">
-<script type="text/javascript" charset="utf-8">
-    window.UEDITOR_HOME_URL = '<%=basePath%>' + "js/ueditor/"; //UEDITOR_HOME_URL、config、all这三个顺序不能改变
-</script>
 <script type="text/javascript" charset="utf-8" src="<%=basePath%>js/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="<%=basePath%>js/ueditor/ueditor.all.min.js"></script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
@@ -35,6 +32,8 @@
  var ue = UE.getEditor('editor', {
         initialFrameHeight: 300,
         initialFrameWeight: 100,
+        imageUrl: '',
+        imagePath: '',
         toolbars: [[
         	'undo', 'redo' , '|',
         	'bold', 'forecolor' , 'removeformat', 'autotypeset', 'pasteplain' , '|', '|',
@@ -49,16 +48,18 @@
 </head>
 
 <body>
+	<form action="<%=basePath %>study/insertBlog.action">
+	
 	<div>
-		标题：<input type="text"/>
+		标题：<input type="text" name="title"/>
 	</div>
 	内容：
-	<div class="wrap-body" id="editor">
-       
-	</div>
-	<input class="sendButton" style="cursor:pointer;background:#999999;color:white;margin-top:0px;margin-bottom:0px;" type="button"
+	<script type="text/plain" id="editor" name="myContent">
+    </script>
+	<input class="sendButton" style="cursor:pointer;background:#999999;color:white;margin-top:0px;margin-bottom:0px;" type="submit"
 				onclick="doLogin()" name="login" value="提交">
 	<input class="sendButton" style="cursor:pointer;background:#999999;color:white;margin-top:0px;margin-bottom:0px;" type="button"
 				onclick="doLogin()" name="login" value="取消">
+	</form>
 </body>
 </html>

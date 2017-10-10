@@ -48,7 +48,7 @@
 				if(data != null && data.length > 0){
 					var domStr = "";
 					for(var i = 0 ; i < data.length ; i++){
-						domStr += "<li><a href='javascrpit:void(0)' onclick=directTo('" + data[i].resourceUrl + "','" + i + "') ><span>" + data[i].resourceName + "</span></a></li>";
+						domStr += "<li><a href='#' onclick=directTo('" + data[i].resourceUrl + "','" + i + "') ><span>" + data[i].resourceName + "</span></a></li>";
 					}
 					$("#ul_menus").html(domStr);
 					$("#ul_menus li:eq(0)").attr("class", "active");
@@ -86,7 +86,7 @@
 	
 	function loadUserMsg(){
 		$.get(basePath + "user/getUserFromSession.action", function(data){
-			if(data.code = 200){
+			if(data.code == 200){
 				$("#loginArea").html(data.data.realName);
 			}else{
 				$("#loginArea").html("<a href=\"javascript:void(0)\" onclick=\"openLogin()\">登录</a>");

@@ -14,7 +14,7 @@
 } )( jQuery );
 
 function openModal(divId, left, top){
-	
+
 }
 
 function openModal(divId) {      
@@ -51,4 +51,22 @@ function closeModal(divId) {
 	$("#bg_zhezhao").remove();      
 	$("#" + divId).animate({left : 0,top : 0,opacity : "hide"}, "slow");    
 } 
+function closePage(){
+	if (navigator.userAgent.indexOf("MSIE") > 0) {
+		if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+			window.opener = null;
+			window.close();
+		} else {
+			window.open('', '_top');
+			window.top.close();
+		}
+	}
+	else if (navigator.userAgent.indexOf("Firefox") > 0) {
+		window.location.href = 'about:blank ';
+	} else {
+		window.opener = null;
+		window.open('', '_self', '');
+		window.close();
+	}
+}
 

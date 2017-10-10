@@ -22,14 +22,14 @@ public class ValidateInteceptor extends HandlerInterceptorAdapter{
 			return true;
 		}
 		
-		return doValidate(request, validate);
+		return doValidate(request, response, validate);
 		
 	}
 
-	private boolean doValidate(HttpServletRequest request, Validate validate) {
+	private boolean doValidate(HttpServletRequest request,HttpServletResponse response, Validate validate) {
 		
 		doValidateByColumns(validate.columns(), request);
-		doValidateByClazz(validate.validatorClass(), request);
+		doValidateByClazz(validate.validatorClass(), request, response);
 		
 		return true;
 	}
@@ -63,7 +63,7 @@ public class ValidateInteceptor extends HandlerInterceptorAdapter{
 		}
 	}
 
-	private void doValidateByClazz(String clazzPath, HttpServletRequest request) {
+	private void doValidateByClazz(String clazzPath, HttpServletRequest request, HttpServletResponse response) {
 		
 		if(StringUtils.isEmpty(clazzPath)) {
 			return;
@@ -73,7 +73,7 @@ public class ValidateInteceptor extends HandlerInterceptorAdapter{
 			Class<?> clazz = Class.forName(clazzPath);
 			Object validator = clazz.newInstance();
 			Method method = clazz.getMethod("doValidate", HttpServletRequest.class);
-			method.invoke(validator, request);
+			method.invoke(validator, request, response);
 		}catch (ValidateException e) {
 			throw e;
 		} catch (Exception e) {

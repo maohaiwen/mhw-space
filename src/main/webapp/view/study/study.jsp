@@ -15,40 +15,29 @@
 <title>学术</title>
 <meta name="description" content="Free Responsive Html5 Css3 Templates ">
 <meta name="author" content="#">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta http-equiv="Access-Control-Allow-Origin" content="*">
-
+<link rel="stylesheet" href="<%=basePath %>js/blog/blog.css" />
+<script type="text/javascript" charset="utf-8" src="<%=basePath%>js/blog/blog.js"></script>
 <script type="text/javascript">
 	
 	var basePath = '<%=basePath%>';
 	
-	function submitMessage(){
-		var name = $("#name").val();
-		var message = $("#message").val();
-		
-		if($.trim(name) == "" || $.trim(message) == ""){
-			alert("咱填完了再提交。");
-			return;
-		}
-		var json = {"name": name, "content": message};
-		$.post(basePath + "leaveMessage/addLeaveMessage.action", json, function(data){
-			if(data.code == 200){
-				alert("留言成功！");
-			}else{
-				alert(data.message);
-			}
-			$("#name,#message").val("");
-		})
+	function openWriteBlog(){
+		window.open(basePath + "dispatcher/toWriteBlog.action");
 	}
 	
+	$(function(){
+		blog.init("div_blog", basePath + "study/selectBlogPage.action");
+	})
 </script>
 </head>
 
 <body>
 	<div class="wrap-body">
-		学术
+		<a href="javascript:void(0)" onclick="openWriteBlog()">写博客</a>
 	</div>
 
+	<div id="div_blog" class="blog_outer"></div>
 </body>
 </html>

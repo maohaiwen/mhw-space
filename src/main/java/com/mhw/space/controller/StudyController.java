@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mhw.space.model.blog.BlogEntity;
 import com.mhw.space.service.study.IStudyService;
 import com.mhw.space.util.common.CommonResp;
+import com.mhw.space.util.common.DispatcherConstants;
 import com.mhw.space.util.system.page.Page;
+import com.mhw.space.util.system.validate.Validate;
 
 @Controller
 @RequestMapping("study")
@@ -24,11 +26,16 @@ public class StudyController {
 	
 	@RequestMapping("insertBlog")
 	@ResponseBody
+	@Validate(columns={"title,notnull,标题不能为空！", "content,notnull,内容不能为空！"})
 	public CommonResp insertBlog(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		String title = request.getParameter("title");
-		String myContent = request.getParameter("myContent");
-		System.out.println(title);
-		System.out.println(myContent);
+		String content = request.getParameter("content");
+		
+		BlogEntity blogEntity = new BlogEntity();
+		blogEntity.setTitle(title);
+		blogEntity.setContent(content);
+		studyService.insertBlog(blogEntity);
+		
 		return new CommonResp();
 	}
 

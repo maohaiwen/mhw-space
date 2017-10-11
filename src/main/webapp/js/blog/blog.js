@@ -27,11 +27,10 @@ var blog = {
 		var domStr = "";
 		for(var i = 0 ; i < list.length ; i ++){
 			var blog = list[i];
-			domStr += "<div>";
+			domStr += "<div class='blog_inner'>";
 			domStr +=    "<ul>";
-			domStr +=      "<li>" + blog.title + "</li>";
-			domStr +=      "<li>" + blog.praiseCount + "</li>";
-			domStr +=      "<li>" + blog.commentCount + "</li>";
+			domStr +=      "<li class='blog_title'>" + blog.title + "</li>";
+			domStr +=      "<li class='blog_attach'>点赞（" + blog.praiseCount + "） 评论（" + blog.commentCount + "）</li>";
 			domStr +=    "</ul>";
 			domStr += "</div>";
 		}

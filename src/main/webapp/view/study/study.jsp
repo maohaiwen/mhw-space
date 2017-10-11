@@ -38,6 +38,6 @@
 		<a href="javascript:void(0)" onclick="openWriteBlog()">写博客</a>
 	</div>
 
-	<div id="div_blog" class="blog_outer"></div>
+	<div id="div_blog"></div>
 </body>
 </html>

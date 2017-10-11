@@ -34,10 +34,10 @@
 </head>
 
 <body>
-	<div class="wrap-body">
+	<div style="padding-top:1%;padding-left:7%;">
 		<a href="javascript:void(0)" onclick="openWriteBlog()">写博客</a>
 	</div>
 
-	<div id="div_blog" style="padding-top: 2%;"></div>
+	<div id="div_blog"></div>
 </body>
 </html>

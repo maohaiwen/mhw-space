@@ -2,6 +2,8 @@ package com.mhw.space.model.blog;
 
 import java.util.Date;
 
+import com.mhw.space.util.common.DateUtil;
+
 public class BlogEntity {
 
 	private Integer id;
@@ -21,7 +23,11 @@ public class BlogEntity {
 	private Date addTime;
 	
 	private Date updateTime;
-
+	
+	private String addTimeStr;
+	
+	private String addTimeAgo;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -92,6 +98,24 @@ public class BlogEntity {
 
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
+	}
+
+	public String getAddTimeStr() {
+		addTimeStr = DateUtil.formatDate(addTime, DateUtil.FORMAT_DATE_TIME);
+		return addTimeStr;
+	}
+
+	public void setAddTimeStr(String addTimeStr) {
+		this.addTimeStr = addTimeStr;
+	}
+
+	public String getAddTimeAgo() {
+		addTimeAgo = DateUtil.formatToAgo(addTime);
+		return addTimeAgo;
+	}
+
+	public void setAddTimeAgo(String addTimeAgo) {
+		this.addTimeAgo = addTimeAgo;
 	}
 	
 }

@@ -9,4 +9,6 @@ public class DispatcherConstants {
 	public static final String WRITE_BLOG = "study/writeblog";
 	// 博客发布成功，跳转页面
 	public static final String WRITE_BLOG_SUCCESS = "study/writeblogsuccess";
+	// 博客详情页面
+	public static final String BLOG_DETAIL = "study/blogdetail";
 }

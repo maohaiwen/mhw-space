@@ -1,6 +1,8 @@
 package com.mhw.space.util.common;
 
 public class ExceptionConstants {
+	
+	public static final int BUSINESS_EXCEPTION = 999;
 
 	public static class Validate{
 		

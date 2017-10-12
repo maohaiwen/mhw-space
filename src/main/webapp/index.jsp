@@ -35,7 +35,7 @@
 
 	function changeFrameHeight(){
 	    var ifm= document.getElementById("iframepage"); 
-	    ifm.height=document.documentElement.clientHeight + 100;
+	    ifm.height=document.documentElement.clientHeight + 300;
 	}
 
 	function directTo(url, num) {

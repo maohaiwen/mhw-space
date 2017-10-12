@@ -41,7 +41,7 @@
     		limit #{pageBegin}, #{pageSize}
     </select>
     
-    <select id="selectEntity" parameterType="Object" resultMap="blogMap">
+    <select id="selectBlogEntity" parameterType="Object" resultMap="blogMap">
     		select * from mhw_blog
     		where id=#{id}
     	</select>

@@ -9,6 +9,10 @@
 			else {
 				menu.addClass('open');
 			}
+			
+			$(menu).children("li").click(function(){
+				menu.removeClass('open');
+			});
 		});
 	});
 } )( jQuery );

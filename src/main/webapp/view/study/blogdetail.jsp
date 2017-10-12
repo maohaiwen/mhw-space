@@ -41,6 +41,9 @@
 		<div style="padding:0 4% 4% 4%;">
 		${blog.content }
 		</div>
+		<div>
+			
+		</div>
 	</div>
 </body>
 </html>

@@ -31,7 +31,12 @@
     <select id="selectCommentList" parameterType="Object" resultMap="commentMap">
     		select id, blog_id, user_name, comment_detail, parent_comment_id, add_time
     		from mhw_blog_comment
-    		order by add_time desc
+    		where 1=1
+    		<if test="blogId">
+    			and blog_id=#{blogId}
+    		</if>
+    		order by add_time 
+    		desc
     </select>
     
 </mapper>

@@ -27,10 +27,10 @@ var blog = {
 		var domStr = "";
 		for(var i = 0 ; i < list.length ; i ++){
 			var blog = list[i];
-			domStr += "<div class='blog_inner'>";
+			domStr += "<div class='blog_inner' onclick=\"blog.toBlogDetail(" + blog.id + ")\">";
 			domStr +=    "<ul>";
 			domStr +=      "<li class='blog_ago'>" + blog.addTimeAgo + "</li>";
-			domStr +=      "<li class='blog_title' onclick=\"blog.toBlogDetail(" + blog.id + ")\">" + blog.title + "</li>";
+			domStr +=      "<li class='blog_title'>" + blog.title + "</li>";
 			domStr +=      "<li class='blog_attach'>点赞（" + blog.praiseCount + "） 评论（" + blog.commentCount + "）</li>";
 			domStr +=    "</ul>";
 			domStr += "</div>";

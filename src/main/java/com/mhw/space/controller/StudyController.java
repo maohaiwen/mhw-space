@@ -1,18 +1,21 @@
 package com.mhw.space.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mhw.space.model.blog.BlogEntity;
-import com.mhw.space.service.study.IStudyService;
+import com.mhw.space.model.comment.CommentEntity;
+import com.mhw.space.service.blog.IBlogService;
+import com.mhw.space.service.comment.ICommentService;
 import com.mhw.space.util.common.CommonResp;
 import com.mhw.space.util.common.DispatcherConstants;
 import com.mhw.space.util.system.exception.BusinessException;
@@ -24,7 +27,10 @@ import com.mhw.space.util.system.validate.Validate;
 public class StudyController {
 
 	@Resource
-	private IStudyService studyService;
+	private IBlogService blogService;
+	
+	@Resource
+	private ICommentService commentService;
 	
 	@RequestMapping("insertBlog")
 	@ResponseBody
@@ -36,7 +42,7 @@ public class StudyController {
 		BlogEntity blogEntity = new BlogEntity();
 		blogEntity.setTitle(title);
 		blogEntity.setContent(content);
-		studyService.insertBlog(blogEntity);
+		blogService.insertBlog(blogEntity);
 		
 		return new CommonResp();
 	}
@@ -44,13 +50,13 @@ public class StudyController {
 	@RequestMapping("selectBlogPage")
 	@ResponseBody
 	public CommonResp selectBlogPage(Page<BlogEntity> page) {
-		return new CommonResp(studyService.selectBlogPage(page));
+		return new CommonResp(blogService.selectBlogPage(page));
 	}
 
 	@RequestMapping("selectBlogEntity")
 	@ResponseBody
 	public CommonResp selectBlogEntity(BlogEntity blogEntity) {
-		return new CommonResp(studyService.selectBlogEntity(blogEntity));
+		return new CommonResp(blogService.selectBlogEntity(blogEntity));
 	}
 	
 	@RequestMapping("toBlogDetail")
@@ -60,7 +66,7 @@ public class StudyController {
 		String id = request.getParameter("id");
 		BlogEntity blogEntity = new BlogEntity();
 		blogEntity.setId(Integer.parseInt(id));
-		blogEntity = studyService.selectBlogEntity(blogEntity);
+		blogEntity = blogService.selectBlogEntity(blogEntity);
 		
 		if(blogEntity == null) {
 			throw new BusinessException("查询不到该博客");
@@ -69,4 +75,35 @@ public class StudyController {
 		
 		return DispatcherConstants.BLOG_DETAIL;
 	}
+	
+	@RequestMapping("doPraiseBlog")
+	@ResponseBody
+	public CommonResp doPraiseBlog(Integer id) {
+		Integer praiseCount = blogService.doPraiseBlog(id);
+		return new CommonResp(200, "成功", praiseCount);
+	}
+	
+	@RequestMapping("doComment")
+	@ResponseBody
+	public CommonResp doComment(@RequestParam Integer blogId, @RequestParam String comment) {
+		
+		CommentEntity commentEntity = new CommentEntity();
+		commentEntity.setBlogId(blogId);
+		commentEntity.setCommentDetail(comment);
+		commentEntity.setUserName("路人甲");
+		Integer commentCount = commentService.doComment(commentEntity);
+		
+		return new CommonResp(200, "成功", commentCount);
+	}
+	
+	@RequestMapping("selectCommentList")
+	@ResponseBody
+	public CommonResp selectCommentList(@RequestParam Integer blogId){
+		CommentEntity commentEntity = new CommentEntity();
+		commentEntity.setBlogId(blogId);
+		List<CommentEntity> commentList = commentService.selectCommentList(commentEntity);
+		
+		return new CommonResp(commentList);
+	}
+	
 }

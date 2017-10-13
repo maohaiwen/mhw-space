@@ -45,5 +45,10 @@
     		select * from mhw_blog
     		where id=#{id}
     	</select>
+    	
+    	<update id="doIncreaseBlogCount" parameterType="Map" >
+    		update mhw_blog set ${field} = ${field} + 1
+    		where id=#{id}
+    	</update>
    
 </mapper>

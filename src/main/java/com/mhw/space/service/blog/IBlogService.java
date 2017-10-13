@@ -1,14 +1,16 @@
-package com.mhw.space.service.study;
+package com.mhw.space.service.blog;
 
 import com.mhw.space.model.blog.BlogEntity;
 import com.mhw.space.util.system.page.Page;
 
-public interface IStudyService {
+public interface IBlogService {
 
 	void insertBlog(BlogEntity blogEntity);
 
 	Page<BlogEntity> selectBlogPage(Page<BlogEntity> page);
 
 	BlogEntity selectBlogEntity(BlogEntity blogEntity);
+
+	Integer doPraiseBlog(Integer id);
 
 }

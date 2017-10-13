@@ -20,7 +20,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver{
 	@Override
 	public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler,
 			Exception ex) {
-
+		ex.printStackTrace();
 		String requestedWith = request.getHeader("x-requested-with");
 		if(requestedWith == null) {
 			try {
@@ -46,14 +46,17 @@ public class CustomExceptionResolver implements HandlerExceptionResolver{
 			}
 		}else {
 			int errorCode = 500;
+			String errorMessage = "服务器发生未知错误！";
 
 			if(ex instanceof ValidateException) {
 				errorCode = ((ValidateException) ex).getErrorCode();
+				errorMessage = ((ValidateException) ex).getErrorMsg();
 			}
 			if(ex instanceof BusinessException) {
 				errorCode = ((BusinessException) ex).getErrorCode();
+				errorMessage = ((ValidateException) ex).getErrorMsg();
 			}
-			return getAjaxReturn(response, errorCode, ex.getMessage());
+			return getAjaxReturn(response, errorCode, errorMessage);
 		}
 
 		return new ModelAndView();

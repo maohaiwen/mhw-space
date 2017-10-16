@@ -35,7 +35,7 @@
 
 	function changeFrameHeight(){
 	    var ifm= document.getElementById("iframepage"); 
-	    ifm.height=document.documentElement.clientHeight + 300;
+	    ifm.height=document.documentElement.clientHeight + 420;
 	}
 
 	function directTo(url, num) {
@@ -97,8 +97,7 @@
 	}
 
 	function loadUserMsg() {
-		$
-				.get(
+		$.get(
 						basePath + "user/getUserFromSession.action",
 						function(data) {
 							if (data.code == 200) {

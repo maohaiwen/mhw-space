@@ -1,6 +1,6 @@
 var blog = {
 	pageNo:1,
-	pageSize:20,
+	pageSize:2,
 	init:function(field, url, jsonIn){
 		if(typeof(jsonIn) == "undefined"){
 			jsonIn = new Object();
@@ -22,6 +22,7 @@ var blog = {
 	},
 	writeIntoDom:function(field, list){
 		if(list == null || list.length == 0){
+			$("#div_load_more").html("没有更多了");
 			return;
 		}
 		var domStr = "";
@@ -35,9 +36,12 @@ var blog = {
 			domStr +=    "</ul>";
 			domStr += "</div>";
 		}
-		$("#" + field).html(domStr);
+		$("#" + field).append(domStr);
 	},
 	toBlogDetail: function(id){
 		window.open(basePath + "study/toBlogDetail.action?id=" + id);
+	},
+	loadMore: function(){
+		blog.init("div_blog", basePath + "study/selectBlogPage.action");
 	}
 }

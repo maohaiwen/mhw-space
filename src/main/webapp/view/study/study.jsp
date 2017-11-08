@@ -39,7 +39,7 @@
 			<a href="javascript:void(0)" onclick="openWriteBlog()">写博客</a>
 		</div>
 
-		<div style="overflow-y:scroll;height:1090px;">
+		<div style="overflow-y:scroll;height:1050px;">
 		
 			<div id="div_blog"></div>
 			<div id="div_load_more" class='blog_inner' style='text-align:center;cursor:pointer;' onclick="blog.loadMore()">加载更多</div>

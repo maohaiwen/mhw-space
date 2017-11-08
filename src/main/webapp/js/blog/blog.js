@@ -1,6 +1,6 @@
 var blog = {
 	pageNo:1,
-	pageSize:2,
+	pageSize:10,
 	init:function(field, url, jsonIn){
 		if(typeof(jsonIn) == "undefined"){
 			jsonIn = new Object();
@@ -42,6 +42,7 @@ var blog = {
 		window.open(basePath + "study/toBlogDetail.action?id=" + id);
 	},
 	loadMore: function(){
+		blog.pageNo += blog.pageNo + 1;
 		blog.init("div_blog", basePath + "study/selectBlogPage.action");
 	}
 }

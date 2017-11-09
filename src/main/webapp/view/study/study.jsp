@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib uri="http://mhwspace.com/authtag" prefix="a" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
@@ -35,8 +36,11 @@
 
 <body>
 	<div class="blog_outer">
-		<div style="padding-top:1%;padding-left:7%;">
-			<a href="javascript:void(0)" onclick="openWriteBlog()">写博客</a>
+	
+		<div style="padding-top:2%;padding-left:7%;">
+			<a:authtag>
+				<a href="javascript:void(0)" onclick="openWriteBlog()">写博客</a>
+			</a:authtag>
 		</div>
 
 		<div style="overflow-y:scroll;height:1050px;">

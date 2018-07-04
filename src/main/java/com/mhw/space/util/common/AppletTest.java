@@ -1,6 +1,7 @@
 package com.mhw.space.util.common;
 
 import java.applet.Applet;
+import java.awt.Graphics;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -43,5 +44,9 @@ public class AppletTest extends Applet{
 		// TODO Auto-generated method stub
 		super.destroy();
 	}
+	
+	public void paint(Graphics g) {  
+		  g.drawString("Hello,Defonds!", 5, 35);  
+		 } 
 
 }

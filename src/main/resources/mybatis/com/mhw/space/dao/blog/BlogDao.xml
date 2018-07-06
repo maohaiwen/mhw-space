@@ -37,7 +37,7 @@
     <select id="selectBlogPage" parameterType="Object" resultMap="blogMap">
     		select id, title, see_able, praise_count, comment_count, is_stick, add_time, update_time
     		from mhw_blog
-    		order by is_stick desc
+    		order by id desc
     		limit #{pageBegin}, #{pageSize}
     </select>
     

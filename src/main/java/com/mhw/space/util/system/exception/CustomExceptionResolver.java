@@ -45,6 +45,7 @@ public class CustomExceptionResolver implements HandlerExceptionResolver{
 
 			}
 		}else {
+			ex.printStackTrace();
 			int errorCode = 500;
 			String errorMessage = "服务器发生未知错误！";
 
